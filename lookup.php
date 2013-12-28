@@ -4,9 +4,10 @@ require 'instagram.source.php';
 
 $sources = array(
 	'instagram' => new Instagram(
-		'', array(
-		array('title' => '', 'id' => 0),
-		array('title' => '', 'id' => 1),
+		'client_id (you can get it from instagram dev page)',
+		array(
+			array('title' => '', 'id' => 0),
+			array('title' => '', 'id' => 1)
 		)
 	)
 );
