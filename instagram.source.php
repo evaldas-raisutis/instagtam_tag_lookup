@@ -14,14 +14,13 @@ class Instagram implements Source {
 	// Store results in array
 	private $data = array();
 
-	public function __construct( $default_client_id = 'asd' , array $default_tags = array() ) 
+	public function __construct( $default_client_id = '' , array $default_tags = array() ) 
   	{
         $this->client_id = $default_client_id;
         $this->tags = $default_tags;
         $this->source = get_class( $this );
         if( !$this->is_valid_source() )
         {
-        	print_r( $this->client_id );
         	exit(get_class( $this ) . " class does not validate as a Source");
         }
     }
