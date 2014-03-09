@@ -5,6 +5,7 @@ require 'instagram.source.php';
 $sources = array(
 	'instagram' => new Instagram(
 		'client_id (you can get it from instagram dev page)',
+		// array of tags, each tag has a title (to search for) and an id (in case you are using a DB)
 		array(
 			array('title' => '', 'id' => 0),
 			array('title' => '', 'id' => 1)
