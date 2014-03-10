@@ -27,7 +27,7 @@ class Instagram implements Source {
 
 	public function ini_lookup()
 	{
-		foreach( $this->tags as $key => $tag ) 
+		foreach ( $this->tags as $key => $tag ) 
 		{
 			$this->set_url( $tag['title'] );
 			$this->get_by( $tag );
