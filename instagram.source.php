@@ -14,20 +14,20 @@ class Instagram implements Source {
 	// Store results in array
 	private $data = array();
 
-	public function __construct( $default_client_id = '' , array $default_tags = array() ) 
-  	{
-        $this->client_id = $default_client_id;
-        $this->tags = $default_tags;
-        $this->source = get_class( $this );
-        if( !$this->is_valid_source() )
-        {
-        	exit(get_class( $this ) . " class does not validate as a Source");
-        }
-    }
+	public function __construct($default_client_id = '' , array $default_tags = array()) 
+	{
+		$this->client_id = $default_client_id;
+		$this->tags = $default_tags;
+		$this->source = get_class( $this );
+		if( !$this->is_valid_source() )
+		{
+			exit(get_class( $this ) . " class does not validate as a Source");
+		}
+	}
 
 	public function ini_lookup()
 	{
-		foreach ( $this->tags as $key => $tag ) 
+		foreach( $this->tags as $key => $tag ) 
 		{
 			$this->set_url( $tag['title'] );
 			$this->get_by( $tag );
@@ -94,32 +94,30 @@ class Instagram implements Source {
 		return $processed_value;
 	}	
 
-    public function is_valid_source()
-    {
-    	if( !isset( $this->client_id ) || empty( $this->client_id ) )
-    	{
-    		return false;
-    	}
-    	if( !isset( $this->tags ) || empty( $this->tags ) )
-    	{
-    		return false;
-    	}    	
+	public function is_valid_source()
+	{
+		if( !isset( $this->client_id ) || empty( $this->client_id ) )
+		{
+			return false;
+		}
+		if( !isset( $this->tags ) || empty( $this->tags ) )
+		{
+			return false;
+		}
 
-    	return true;
-    }
+		return true;
+	}
 
-    public function set_url( $tag, $max_id = false )
-    {
-    	if( !$max_id )
-    	{
-    		$this->tag_endpoint_url = "https://api.instagram.com/v1/tags/" . $tag . "/media/recent?client_id=" . $this->client_id;
-    	}
-    	else 
-    	{	
-    		$this->tag_endpoint_url = "https://api.instagram.com/v1/tags/" . $tag . "/media/recent?client_id=" . $this->client_id . "&max_tag_id=" . $max_id;
-    	}
- 
-    }  	
+	public function set_url( $tag, $max_id = false )
+	{
+		if( !$max_id )
+		{
+			$this->tag_endpoint_url = "https://api.instagram.com/v1/tags/" . $tag . "/media/recent?client_id=" . $this->client_id;
+		}
+		else 
+		{	
+			$this->tag_endpoint_url = "https://api.instagram.com/v1/tags/" . $tag . "/media/recent?client_id=" . $this->client_id . "&max_tag_id=" . $max_id;
+		}
+	}  	
 
 }
- ?>
